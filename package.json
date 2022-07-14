@@ -1,0 +1,29 @@
+{
+	"name": "lit-element",
+	"version": "1.0.0",
+	"description": "this is a project to practice lit-element",
+	"main": "./index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [
+		"lit",
+		"element",
+		"web",
+		"components",
+		"JavaScript"
+	],
+	"author": "@_ArzCorp_",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/ArzCorp/lit-element.git"
+	},
+	"bugs": {
+		"url": "https://github.com/ArzCorp/lit-element/issues"
+	},
+	"homepage": "https://github.com/ArzCorp/lit-element#readme",
+	"dependencies": {
+		"lit-element": "^3.2.1"
+	}
+}
