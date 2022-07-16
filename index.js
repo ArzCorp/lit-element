@@ -1,19 +1,32 @@
 import { html, LitElement } from 'lit-element'
 
+import './src/components/simple-button.js'
 class Title extends LitElement {
-	constructor() {
-		super()
-		this.text = 'LitElement'
-	}
-
 	static get properties() {
 		return {
-			text: { type: String },
+			message: { type: String },
+			visible: { type: Boolean },
+			id: { type: String },
 		}
 	}
 
+	constructor() {
+		super()
+		this.id = 'app-title'
+		this.message = 'LitElement'
+		this.visible = false
+	}
+
+	showMessage() {
+		alert('Soy un mensaje')
+	}
+
 	render() {
-		return html`<h1>${this.text}</h1>`
+		return html`
+			<p ?hidden="${this.visible}" id="${this.id}">${this.message}</p>
+			<simple-button .handleClick="${this.showMessage}">Alerta</simple-button>
+			<slot></slot>
+		`
 	}
 }
 
