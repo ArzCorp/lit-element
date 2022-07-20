@@ -16,6 +16,15 @@ class GhostButton extends SimpleButton {
 		return [
 			super.styles,
 			css`
+				button {
+					background-color: rgba(255, 255, 255, 1);
+					border: 1px solid #1e3a8a;
+				}
+
+				button:hover {
+					background-color: rgba(255, 255, 255, 0.8);
+				}
+
 				button:disabled {
 					background-color: red;
 					color: white;

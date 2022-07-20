@@ -14,16 +14,18 @@ export class SimpleButton extends LitElement {
 				padding: 10px 25px;
 				border-radius: 5px;
 				transition: all 0.2s ease-in-out;
-				box-shadow: 4px 5px 0px 0px #1e3a8a;
 				cursor: pointer;
 				font-size: 1.5rem;
+				margin: 10px;
 				border: none;
-				background-color: #bfdbfe;
+				will-change: background-color;
+				background-color: rgba(191, 219, 254, 1);
 				color: #1e3a8a;
 			}
 
 			button:hover {
-				box-shadow: none;
+				background-color: rgba(191, 219, 254, 0.8);
+				transform: scale(0.98);
 			}
 
 			button:disabled {
