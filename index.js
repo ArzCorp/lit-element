@@ -2,6 +2,8 @@ import { html, LitElement } from 'lit-element'
 
 import './src/components/ghost-button.js'
 import './src/components/simple-button.js'
+import './src/components/app-header.js'
+
 class Title extends LitElement {
 	static get properties() {
 		return {
