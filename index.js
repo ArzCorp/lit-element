@@ -24,7 +24,9 @@ class Title extends LitElement {
 	render() {
 		return html`
 			<p ?hidden="${this.visible}" id="${this.id}">${this.message}</p>
-			<simple-button .handleClick="${this.showMessage}">Alerta</simple-button>
+			<simple-button disabled .handleClick="${this.showMessage}"
+				>Alerta</simple-button
+			>
 			<slot></slot>
 		`
 	}
