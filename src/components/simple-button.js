@@ -1,6 +1,6 @@
-import { html, css, LitElement, unsafeCSS } from 'lit-element'
+import { html, css, LitElement } from 'lit-element'
 
-class Button extends LitElement {
+export class SimpleButton extends LitElement {
 	static get properties() {
 		return {
 			handleClick: { type: Function },
@@ -47,4 +47,4 @@ class Button extends LitElement {
 	}
 }
 
-customElements.define('simple-button', Button)
+customElements.define('simple-button', SimpleButton)

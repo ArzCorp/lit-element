@@ -1,5 +1,6 @@
 import { html, LitElement } from 'lit-element'
 
+import './src/components/ghost-button.js'
 import './src/components/simple-button.js'
 class Title extends LitElement {
 	static get properties() {
@@ -27,6 +28,7 @@ class Title extends LitElement {
 			<simple-button disabled .handleClick="${this.showMessage}"
 				>Alerta</simple-button
 			>
+			<ghost-button disabled>Hola</ghost-button>
 			<slot></slot>
 		`
 	}
