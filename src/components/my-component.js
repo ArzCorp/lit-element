@@ -1,26 +1,19 @@
 import { LitElement, html } from 'lit-element'
 
 class MyComponent extends LitElement {
-	static get properties() {
-		return {
-			value: { type: Boolean },
-		}
-	}
-
-	constructor() {
-		super()
-		this.value = 'Soy el valor'
-	}
-
-	handleChange(e) {
-		this.value = e.target.value
+	firstUpdated() {
+		const text = this.shadowRoot.querySelector('#text')
 	}
 
 	render() {
 		return html`
-			<p>${this.value}</p>
-			<input type="text" @keyup="${this.handleChange}" .value="${this.value}" />
+			<div>
+				<p id="text">Soy un componente</p>
+				<slot name="hijo-one"></slot>
+				<slot name="hijo-two"></slot>
+			</div>
 		`
 	}
 }
+
 customElements.define('my-component', MyComponent)
