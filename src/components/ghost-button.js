@@ -1,11 +1,9 @@
 import { html, css } from 'lit-element'
-import { SimpleButton } from './simple-button'
+import { RegularButton } from './regular-button'
 
-class GhostButton extends SimpleButton {
+class GhostButton extends RegularButton {
 	static get properties() {
-		return {
-			...super.properties,
-		}
+		return {}
 	}
 
 	constructor() {
@@ -17,24 +15,42 @@ class GhostButton extends SimpleButton {
 			super.styles,
 			css`
 				button {
-					background-color: rgba(255, 255, 255, 1);
-					border: 1px solid #1e3a8a;
+					font-weight: medium;
+					border-width: 1px;
+					border-style: solid;
 				}
 
 				button:hover {
-					background-color: rgba(255, 255, 255, 0.8);
+					opacity: 0.65;
 				}
 
-				button:disabled {
-					background-color: red;
-					color: white;
+				.dangerous {
+					background-color: #fafafa;
+					border-color: #dc2626;
+					color: #dc2626;
+				}
+
+				.pass {
+					background-color: #fafafa;
+					border-color: #22c55e;
+					color: #22c55e;
+				}
+
+				.regular {
+					background-color: #fafafa;
+					border-color: #2563eb;
+					color: #2563eb;
 				}
 			`,
 		]
 	}
 
 	render() {
-		return html`<button ?disabled=${this.disabled} @click="${this.handleClick}">
+		return html`<button
+			class="${this.buttonStyles}"
+			?disabled=${this.disabled}
+			@click="${this.handleClick}"
+		>
 			<slot></slot>
 		</button>`
 	}
