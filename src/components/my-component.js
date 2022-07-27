@@ -1,16 +1,19 @@
-import { LitElement, html } from 'lit-element'
+import { LitElement, css, html } from 'lit-element'
 
 class MyComponent extends LitElement {
-	firstUpdated() {
-		const text = this.shadowRoot.querySelector('#text')
+	static get styles() {
+		return css`
+			p {
+				font-size: 1.8rem;
+				color: #1e3a8a;
+			}
+		`
 	}
 
 	render() {
 		return html`
 			<div>
 				<p id="text">Soy un componente</p>
-				<slot name="hijo-one"></slot>
-				<slot name="hijo-two"></slot>
 			</div>
 		`
 	}
