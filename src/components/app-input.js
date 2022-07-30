@@ -9,6 +9,7 @@ class AppInput extends LitElement {
 			value: { type: String },
 			error: { type: String },
 			handleChange: { type: Function },
+			disabled: { type: Boolean },
 		}
 	}
 
@@ -19,6 +20,15 @@ class AppInput extends LitElement {
 				display: block;
 				box-sizing: border-box;
 				font-size: 1.6rem;
+			}
+
+			:host([disabled]) {
+				color: var(--color-disabled);
+			}
+
+			:host([disabled]) input {
+				border-color: var(--color-disabled);
+				cursor: not-allowed;
 			}
 
 			label {
@@ -42,6 +52,7 @@ class AppInput extends LitElement {
 		return html`
 			<label htmlFor="${this.name}">${this.label}</label>
 			<input
+				?disabled="${this.disabled}"
 				type="text"
 				name="${this.name}"
 				id="${this.id}"
