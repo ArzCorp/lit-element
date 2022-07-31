@@ -19,13 +19,18 @@ class AppInput extends LitElement {
 
 	static get styles() {
 		return css`
+			* {
+				box-sizing: border-box;
+			}
+
 			:host {
+				position: relative;
 				color: var(--color-primary-dark);
 				width: 180px;
-				display: block;
+				display: inline-block;
 				box-sizing: border-box;
 				font-size: 1.6rem;
-				transition: all 0.6s ease-in-out;
+				transition: all 0.3s ease-in-out;
 			}
 
 			:host([disabled]) {
@@ -43,7 +48,8 @@ class AppInput extends LitElement {
 			}
 
 			:host([readonly]) {
-				opacity: 0.8;
+				transition: none;
+				opacity: 0.75;
 			}
 
 			:host([readonly]) input {
@@ -67,6 +73,10 @@ class AppInput extends LitElement {
 			}
 
 			p {
+				width: 100%;
+				position: absolute;
+				top: 0;
+				text-align: right;
 				color: var(--color-error);
 				font-size: 1rem;
 				margin-top: 0.5rem;
@@ -92,18 +102,19 @@ class AppInput extends LitElement {
 	constructor() {
 		super()
 		this.type = 'text'
+		this.readonly = false
 	}
 
 	render() {
 		return html`
 			<label htmlFor="${this.name}">${this.label}</label>
 			<input
-				?disabled="${this.disabled}"
 				type="${this.type}"
 				name="${this.name}"
 				id="${this.id}"
-				readonly="${this.readonly}"
 				value="${this.value}"
+				?disabled="${this.disabled}"
+				?readonly="${this.readonly}"
 				@keyup="${this._handleChange}"
 			/>
 			<p>${this.error}</p>
