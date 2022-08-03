@@ -1,5 +1,5 @@
 import { LitElement, css, html } from 'lit-element'
-
+import { classMap } from 'lit-html/directives/class-map.js'
 class MyComponent extends LitElement {
 	static get styles() {
 		return css`
@@ -43,17 +43,35 @@ class MyComponent extends LitElement {
 				color: var(--color-primary);
 			}
 
+			h2 ::slotted(*) {
+				font-size: 2.5rem;
+			}
+
 			span ::slotted(*) {
 				color: var(--color-error);
+			}
+
+			.active {
+				background-color: var(--color-primary);
 			}
 		`
 	}
 
+	constructor() {
+		super()
+		this.classes = {
+			active: false,
+			error: true,
+		}
+	}
+
 	render() {
 		return html`
-			<div>
+			<div class=${classMap(this.classes)}>
 				<h1>My component</h1>
-				<slot name="title">Soy un componente</slot>
+				<h2>
+					<slot name="title">Soy un componente</slot>
+				</h2>
 				<slot name="subtitle"></slot>
 				<span>
 					<slot name="content"></slot>

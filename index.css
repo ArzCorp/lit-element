@@ -35,5 +35,7 @@ my-component p {
 }
 
 my-component {
+	width: 300px;
 	--component-color: green;
+	font-size: 2rem;
 }
