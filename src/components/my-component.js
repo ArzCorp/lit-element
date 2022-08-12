@@ -2,7 +2,8 @@ import { LitElement, html } from 'lit-element'
 class MyComponent extends LitElement {
 	static get properties() {
 		return {
-			text: {},
+			nombre: { type: String },
+			genero: { type: String },
 		}
 	}
 
@@ -13,8 +14,9 @@ class MyComponent extends LitElement {
 	render() {
 		return html`
 			<div>
-				<p>My component</p>
-				<p>${this.text}</p>
+				<p>
+					${this.nombre} es ${(this.genero == 'F') ? 'Femenino' : 'masculino'}
+				</p>
 			</div>
 		`
 	}
